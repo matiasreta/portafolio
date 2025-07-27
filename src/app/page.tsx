@@ -1,103 +1,138 @@
-import Image from "next/image";
+"use client"
+
+import Card from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex h-screen bg-gray-100">
+      {/* Sidebar */}
+      <div className="w-16 bg-white flex flex-col items-center py-6 space-y-6">
+      
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center p-8">
+        <div className=" w-[720px] h-[720px]">
+          {/* Greeting Section */}
+          <div className=" mb-8">
+            <h1 className="text-4xl font-bold mb-4">
+            Hola soy Matias Retamozo
+            Consulta acerca mi experiencia y proyectos
+            </h1>
+            <p className="text-gray-600 text-lg">
+              Use one of the most common prompts below or use your own to begin
+            </p>
+          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              <Card
+                tipo="proyecto"
+                enProgreso={true}
+                nombre="Portfolio Personal"
+                descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
+                tecnologias={["Next.js", "React", "Tailwind"]}
+                fechaInicio="2024"
+                onClick={() => console.log("Portfolio clicked")}
+              />
+              
+              <Card
+                tipo="trabajo"
+                enProgreso={false}
+                nombre="Desarrollador Frontend"
+                empresa="TechCorp"
+                descripcion="Desarrollo de aplicaciones web responsivas y optimización de rendimiento"
+                tecnologias={["React", "TypeScript", "Node.js"]}
+                fechaInicio="2023"
+                fechaFin="2024"
+                onClick={() => console.log("Trabajo clicked")}
+              />
+              
+              <Card
+                tipo="proyecto"
+                enProgreso={false}
+                nombre="E-commerce Platform"
+                descripcion="Plataforma completa de comercio electrónico con sistema de pagos"
+                tecnologias={["Vue.js", "Laravel", "MySQL"]}
+                fechaInicio="2023"
+                fechaFin="2024"
+                onClick={() => console.log("E-commerce clicked")}
+              />
+              
+              <Card
+                tipo="trabajo"
+                enProgreso={true}
+                nombre="Senior Developer"
+                empresa="StartupXYZ"
+                descripcion="Liderazgo técnico y desarrollo de arquitecturas escalables"
+                tecnologias={["Python", "Django", "AWS"]}
+                fechaInicio="2024"
+                onClick={() => console.log("Senior Dev clicked")}
+              />
+            </div>
+
+          {/* Refresh Prompts */}
+          <div className="text-center mb-8">
+            <button className="text-purple-600 hover:text-purple-700 flex items-center justify-center mx-auto space-x-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Refresh Prompts</span>
+            </button>
+          </div>
+
+          {/* Input Section */}
+          <div className="space-y-4">
+            {/* Main Input */}
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Ask whatever you want...."
+                className="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              />
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                <button className="bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg text-sm flex items-center space-x-1">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>All Web</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Bottom Controls */}
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-4">
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800">
+                  <div className="w-6 h-6 border-2 border-gray-300 rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    </svg>
+                  </div>
+                  <span className="text-sm">Add Attachment</span>
+                </button>
+                
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-sm">Use Image</span>
+                </button>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <span className="text-sm text-gray-500">0/1000</span>
+                <button className="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
