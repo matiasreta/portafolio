@@ -1,8 +1,46 @@
 "use client"
 
 import Card from "@/components/ui/card";
+import { useRef, useState } from "react";
+import { MouseEvent } from "react";
 
 export default function Home() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [startX, setStartX] = useState<number>(0);
+  const [scrollLeft, setScrollLeft] = useState<number>(0);
+
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+    
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+    scrollRef.current.style.cursor = 'grabbing';
+  };
+
+  const handleMouseLeave = () => {
+    if (!scrollRef.current) return;
+    
+    setIsDragging(false);
+    scrollRef.current.style.cursor = 'grab';
+  };
+
+  const handleMouseUp = () => {
+    if (!scrollRef.current) return;
+    
+    setIsDragging(false);
+    scrollRef.current.style.cursor = 'grab';
+  };
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollRef.current) return;
+    
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Velocidad del scroll
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
@@ -17,67 +55,111 @@ export default function Home() {
           <div className=" mb-8">
             <h1 className="text-4xl font-bold mb-4">
             Hola soy Matias Retamozo
-            Consulta acerca mi experiencia y proyectos
+            <br/>
+            Desarrollador Fullstack
             </h1>
             <p className="text-gray-600 text-lg">
-              Use one of the most common prompts below or use your own to begin
+              Podes consultar acerca de mi experiencia y proyectos actualizados
             </p>
           </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              <Card
-                tipo="proyecto"
-                enProgreso={true}
-                nombre="Portfolio Personal"
-                descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
-                tecnologias={["Next.js", "React", "Tailwind"]}
-                fechaInicio="2024"
-                onClick={() => console.log("Portfolio clicked")}
-              />
+              {/* Cards container with drag to scroll */}
+              <div 
+                ref={scrollRef}
+                className="flex overflow-x-auto gap-4 mb-8 pb-2 cursor-grab select-none"
+                style={{ 
+                  scrollbarWidth: 'none', 
+                  msOverflowStyle: 'none',
+                }}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+              >
+                <style jsx>{`
+                  div::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}</style>
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="proyecto"
+                  enProgreso={true}
+                  nombre="Portfolio Personal"
+                  descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
+                  tecnologias={["Next.js", "React", "Tailwind"]}
+                  fechaInicio="2024"
+                  onClick={() => console.log("Portfolio clicked")}
+                />
+              </div>
               
-              <Card
-                tipo="trabajo"
-                enProgreso={false}
-                nombre="Desarrollador Frontend"
-                empresa="TechCorp"
-                descripcion="Desarrollo de aplicaciones web responsivas y optimización de rendimiento"
-                tecnologias={["React", "TypeScript", "Node.js"]}
-                fechaInicio="2023"
-                fechaFin="2024"
-                onClick={() => console.log("Trabajo clicked")}
-              />
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="trabajo"
+                  enProgreso={false}
+                  nombre="Desarrollador Frontend"
+                  empresa="TechCorp"
+                  descripcion="Desarrollo de aplicaciones web responsivas y optimización de rendimiento"
+                  tecnologias={["React", "TypeScript", "Node.js"]}
+                  fechaInicio="2023"
+                  fechaFin="2024"
+                  onClick={() => console.log("Trabajo clicked")}
+                />
+              </div>
               
-              <Card
-                tipo="proyecto"
-                enProgreso={false}
-                nombre="E-commerce Platform"
-                descripcion="Plataforma completa de comercio electrónico con sistema de pagos"
-                tecnologias={["Vue.js", "Laravel", "MySQL"]}
-                fechaInicio="2023"
-                fechaFin="2024"
-                onClick={() => console.log("E-commerce clicked")}
-              />
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="proyecto"
+                  enProgreso={false}
+                  nombre="E-commerce Platform"
+                  descripcion="Plataforma completa de comercio electrónico con sistema de pagos"
+                  tecnologias={["Vue.js", "Laravel", "MySQL"]}
+                  fechaInicio="2023"
+                  fechaFin="2024"
+                  onClick={() => console.log("E-commerce clicked")}
+                />
+              </div>
               
-              <Card
-                tipo="trabajo"
-                enProgreso={true}
-                nombre="Senior Developer"
-                empresa="StartupXYZ"
-                descripcion="Liderazgo técnico y desarrollo de arquitecturas escalables"
-                tecnologias={["Python", "Django", "AWS"]}
-                fechaInicio="2024"
-                onClick={() => console.log("Senior Dev clicked")}
-              />
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="trabajo"
+                  enProgreso={true}
+                  nombre="Senior Developer"
+                  empresa="StartupXYZ"
+                  descripcion="Liderazgo técnico y desarrollo de arquitecturas escalables"
+                  tecnologias={["Python", "Django", "AWS"]}
+                  fechaInicio="2024"
+                  onClick={() => console.log("Senior Dev clicked")}
+                />
+              </div>
+              
+              {/* Puedes agregar más cards aquí para probar el scroll */}
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="proyecto"
+                  enProgreso={false}
+                  nombre="App Mobile"
+                  descripcion="Aplicación móvil para gestión de tareas"
+                  tecnologias={["React Native", "Firebase"]}
+                  fechaInicio="2023"
+                  fechaFin="2023"
+                  onClick={() => console.log("Mobile App clicked")}
+                />
+              </div>
+              
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="trabajo"
+                  enProgreso={false}
+                  nombre="Full Stack Developer"
+                  empresa="Agency Co"
+                  descripcion="Desarrollo completo de aplicaciones web"
+                  tecnologias={["Angular", "Node.js", "MongoDB"]}
+                  fechaInicio="2022"
+                  fechaFin="2023"
+                  onClick={() => console.log("Full Stack clicked")}
+                />
+              </div>
             </div>
-
-          {/* Refresh Prompts */}
-          <div className="text-center mb-8">
-            <button className="text-purple-600 hover:text-purple-700 flex items-center justify-center mx-auto space-x-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              <span>Refresh Prompts</span>
-            </button>
-          </div>
 
           {/* Input Section */}
           <div className="space-y-4">
