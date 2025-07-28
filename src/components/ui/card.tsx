@@ -28,7 +28,7 @@ const Card = memo<CardProps>(({
 
   return (
     <div 
-      className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer py-3 pl-3 pr-1 w-52 h-36"
+      className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer py-3 pl-3 pr-1 w-[210px] h-[140px]"
       onClick={onClick}
     >
       {/* Header con badge y estado */}
