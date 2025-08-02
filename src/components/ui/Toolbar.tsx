@@ -31,6 +31,31 @@ const Toolbar = memo<ToolbarProps>(({
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
   const [inputText, setInputText] = useState('');
 
+  const callBackendAPI = async (message: string) => {
+    try {
+      const response = await fetch('https://portafolio-backend-c246.onrender.com/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message,
+          user_id: "user_123" // Puedes cambiar este ID según necesites
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Respuesta del backend:', data);
+      return data;
+    } catch (error) {
+      console.error('Error al llamar al backend:', error);
+    }
+  };
+
   const handleActionClick = (actionId: string) => {
     onActionSelect?.(actionId);
   };
@@ -39,9 +64,10 @@ const Toolbar = memo<ToolbarProps>(({
     setIsModelDropdownOpen(false);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputText.trim()) {
       console.log('Mensaje enviado:', inputText);
+      await callBackendAPI(inputText);
       setInputText(''); // Limpiar el input después de enviar
     }
   };
