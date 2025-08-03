@@ -2,6 +2,7 @@
 
 import Card from "@/components/ui/card";
 import Toolbar from "@/components/ui/Toolbar";
+import Chat from "@/components/ui/Chat";
 import { useRef, useState } from "react";
 import { MouseEvent } from "react";
 
@@ -162,9 +163,9 @@ export default function Home() {
               </div>
             </div>
 
-            <Toolbar
+            <Chat />
             
-            />
+            <Toolbar />
           
         </div>
       </div>
