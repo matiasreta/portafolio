@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <ChatProvider>
-          <div className="min-h-screen">
+          <div className="h-screen bg-gray-100 ">
             {children}
           </div>
         </ChatProvider>

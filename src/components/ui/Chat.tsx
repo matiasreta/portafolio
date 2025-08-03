@@ -13,7 +13,7 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm p-4 mb-4 h-[400px] overflow-y-auto">
+    <div className="w-full max-w-4xl mx-auto mb-4">
       <div className="space-y-4">
         {messages.map((message, index) => (
           <div key={index} className="space-y-2">
@@ -27,7 +27,7 @@ const Chat: React.FC = () => {
             
             {/* Bot Response */}
             <div className="flex justify-start">
-              <div className="bg-gray-100 text-gray-800 rounded-lg px-4 py-2 max-w-[70%]">
+              <div className=" text-gray-800 rounded-lg  py-2 max-w-[70%] font-bold ">
                 {message.bot_response ? (
                   <>
                     <p className="text-sm whitespace-pre-line">{message.bot_response}</p>
@@ -40,7 +40,7 @@ const Chat: React.FC = () => {
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
-                    <span className="text-sm text-gray-500">Escribiendo...</span>
+                    <span className="text-sm text-gray-500"></span>
                   </div>
                 )}
               </div>
@@ -49,8 +49,7 @@ const Chat: React.FC = () => {
         ))}
         
         {messages.length === 0 && (
-          <div className="text-center text-gray-500 py-8">
-            <p>No hay mensajes aún. ¡Haz una pregunta para comenzar!</p>
+          <div>
           </div>
         )}
       </div>

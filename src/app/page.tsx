@@ -44,26 +44,10 @@ export default function Home() {
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-16 bg-white flex flex-col items-center py-6 space-y-6">
-      
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className=" w-[720px] h-[720px]">
-          {/* Greeting Section */}
-          <div className=" mb-8">
-            <h1 className="text-4xl font-bold mb-4">
-            Hola soy Matias Retamozo
-            <br/>
-            Desarrollador Fullstack
-            </h1>
-            <p className="text-orange-600 text-base">
-              Podes consultar acerca de mi experiencia y proyectos actualizados
-            </p>
-          </div>
+    <div className="flex bg-gray-100 overflow-y-auto">
+      <div className="flex-1 flex flex-col items-center justify-center ">
+        <div className="flex flex-col-reverse w-[720px]">
+          <Chat />
               {/* Cards container with drag to scroll */}
               <div 
                 ref={scrollRef}
@@ -162,11 +146,19 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            <Chat />
-            
-            <Toolbar />
-          
+            <div className=" mb-8">
+            <h1 className="text-4xl font-bold mb-4">
+            Hola soy Matias Retamozo
+            <br/>
+            Desarrollador Fullstack
+            </h1>
+            <p className="text-orange-600 text-base">
+              Podes consultar acerca de mi experiencia y proyectos actualizados
+            </p>
+          </div>
+        </div>
+        <div className="w-[720px]">
+        <Toolbar />
         </div>
       </div>
     </div>
