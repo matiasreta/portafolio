@@ -45,7 +45,7 @@ const Toolbar = memo<ToolbarProps>(({
     type: 'error' | 'success' | 'warning';
   } | null>(null);
   const { addMessage, updateMessage } = useChat();
-  const { callApi, isLoading, error } = useApi({
+  const { callApi, isLoading } = useApi({
     retries: 2,
     retryDelay: 2000,
     timeout: 45000 // 45 segundos para respuestas más largas
