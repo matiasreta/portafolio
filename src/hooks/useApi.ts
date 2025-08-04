@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import apiClient from '@/lib/axios';
 
-interface ApiResponse<T> {
-  data: T;
-  status: number;
-}
-
 interface UseApiOptions {
   retries?: number;
   retryDelay?: number;
