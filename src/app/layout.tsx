@@ -8,7 +8,7 @@ import { ChatProvider } from "@/context/ChatContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mi App Next.js",
+  title: "Portafolio",
   description: "Aplicación creada con Next.js, Tailwind CSS y TypeScript",
 };
 
