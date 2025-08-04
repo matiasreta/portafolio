@@ -221,7 +221,7 @@ const Toolbar = memo<ToolbarProps>(({
                 } text-white`}
                 aria-label="Send message"
               >
-                <ArrowUp className={`w-4 h-4 ${isLoading ? 'animate-pulse' : ''}`} />
+                <ArrowUp className={`w-4 h-4 cursor-pointer ${isLoading ? 'animate-pulse' : ''}`} />
               </button>
             </div>
           </div>

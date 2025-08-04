@@ -53,8 +53,8 @@ export default function Home() {
         <div className="flex-1 flex flex-col items-center justify-center">
           <div className="w-[720px] flex flex-col ">
             {/* Título y descripción */}
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-4">
+            <div className="mb-2">
+              <h1 className="text-4xl font-bold mb-6">
                 Hola soy Matias Retamozo
                 <br/>
                 Desarrollador Fullstack
@@ -82,54 +82,40 @@ export default function Home() {
                   display: none;
                 }
               `}</style>
+
               <div className="flex-shrink-0 pointer-events-auto">
                 <Card
                   tipo="proyecto"
                   enProgreso={true}
                   nombre="Portfolio Personal"
                   descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
-                  tecnologias={["Next.js", "React", "Tailwind"]}
-                  fechaInicio="2024"
-                  onClick={() => console.log("Portfolio clicked")}
+                  tecnologias={["Python","AI","Next.js", "React", "Tailwind", "Typescript","Axios","FastAPI"]}
+                  fechaInicio="Agosto 2025"
+                  onClick={() => console.log("Portfolio Personal")}
                 />
               </div>
-              
               <div className="flex-shrink-0 pointer-events-auto">
                 <Card
                   tipo="proyecto"
                   enProgreso={false}
-                  nombre="Brand Color UI generator"
-                  empresa=""
-                  descripcion="Desarrollo de aplicaciones web responsivas y optimización de rendimiento"
-                  tecnologias={["React", "TypeScript", "Node.js"]}
-                  fechaInicio="2023"
-                  fechaFin="2024"
-                  onClick={() => console.log("Trabajo clicked")}
+                  nombre="Web scraping"
+                  
+                  descripcion="Este proyecto realiza scraping, procesamiento de PDFs y OCR"
+                  tecnologias={["Node", "Javascript", "playwright", "Axios"]}
+                  fechaInicio="Jun"
+                  fechaFin="2025"
+                  onClick={() => console.log("Web scraping")}
                 />
               </div>
-              
               <div className="flex-shrink-0 pointer-events-auto">
                 <Card
                   tipo="proyecto"
                   enProgreso={false}
-                  nombre="E-commerce Platform"
-                  descripcion="Plataforma completa de comercio electrónico con sistema de pagos"
-                  tecnologias={["Vue.js", "Laravel", "MySQL"]}
-                  fechaInicio="2023"
+                  nombre=" Metaroad"
+                  descripcion="Aplicacion de gestion de habitos y tareas diarias, inicialmente desarrollada con V0"
+                  tecnologias={["React", "Next.js", "Supabase", "Axios"]}
+                  fechaInicio="Dic"
                   fechaFin="2024"
-                  onClick={() => console.log("E-commerce clicked")}
-                />
-              </div>
-              
-              <div className="flex-shrink-0 pointer-events-auto">
-                <Card
-                  tipo="trabajo"
-                  enProgreso={true}
-                  nombre="Senior Developer"
-                  empresa="StartupXYZ"
-                  descripcion="Liderazgo técnico y desarrollo de arquitecturas escalables"
-                  tecnologias={["Python", "Django", "AWS"]}
-                  fechaInicio="2024"
                   onClick={() => console.log("Senior Dev clicked")}
                 />
               </div>
@@ -137,14 +123,17 @@ export default function Home() {
               {/* Puedes agregar más cards aquí para probar el scroll */}
               <div className="flex-shrink-0 pointer-events-auto">
                 <Card
-                  tipo="proyecto"
+                  tipo="trabajo"
                   enProgreso={false}
-                  nombre="App Mobile"
-                  descripcion="Aplicación móvil para gestión de tareas"
-                  tecnologias={["React Native", "Firebase"]}
-                  fechaInicio="2023"
-                  fechaFin="2023"
-                  onClick={() => console.log("Mobile App clicked")}
+                  nombre="FrontEnd Developer"
+                  empresa="Lilab"
+                  descripcion="Combiné habilidades técnicas y creativas para desarrollar soluciones
+                  innovadoras que mejoran la experiencia del usuario. Trabajé en colaboración
+                  con equipos para crear prototipos interactivos y aplicar tecnologías emergentes."
+                  tecnologias={["NPM", "Storybook","React","CssModule","CSS","GIT","Python","Figma"]}
+                  fechaInicio="Ene 2024"
+                  fechaFin="Jun 2024"
+                  onClick={() => console.log("Front-End Developer")}
                 />
               </div>
               
@@ -152,17 +141,18 @@ export default function Home() {
                 <Card
                   tipo="trabajo"
                   enProgreso={false}
-                  nombre="Full Stack Developer"
-                  empresa="Agency Co"
-                  descripcion="Desarrollo completo de aplicaciones web"
-                  tecnologias={["Angular", "Node.js", "MongoDB"]}
-                  fechaInicio="2022"
-                  fechaFin="2023"
-                  onClick={() => console.log("Full Stack clicked")}
+                  nombre="FullStack Junior"
+                  empresa="Lilab"
+                  descripcion="Participé en el desarrollo de la plataforma Viuty, centrada en la gestión de
+                  productos para salones de belleza. Colaboré estrechamente con un equipo de
+                  diseñadores en la implementación de soluciones front-end"
+                  tecnologias={["React","Node.js","Redux","CSS"]}
+                  fechaInicio="Dic 2022"
+                  fechaFin="Ene 2024"
+                  onClick={() => console.log("FullStack Junior")}
                 />
               </div>
             </div>
-            
             {/* Toolbar centrado cuando no hay mensajes */}
             <div className="w-full">
               <Toolbar />
@@ -176,8 +166,8 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center min-h-0 overflow-y-auto justify-start pt-8">
             <div className="w-[720px] flex flex-col">
               {/* Título y descripción */}
-              <div className="mb-8">
-                <h1 className="text-4xl font-bold mb-4">
+              <div className="mb-2">
+                <h1 className="text-4xl font-bold mb-6">
                   Hola soy Matias Retamozo
                   <br/>
                   Desarrollador Fullstack
@@ -206,84 +196,75 @@ export default function Home() {
                   }
                 `}</style>
                 <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="proyecto"
-                    enProgreso={true}
-                    nombre="Portfolio Personal"
-                    descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
-                    tecnologias={["Next.js", "React", "Tailwind"]}
-                    fechaInicio="2024"
-                    onClick={() => console.log("Portfolio clicked")}
-                  />
-                </div>
-                
-                <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="proyecto"
-                    enProgreso={false}
-                    nombre="Brand Color UI generator"
-                    empresa=""
-                    descripcion="Desarrollo de aplicaciones web responsivas y optimización de rendimiento"
-                    tecnologias={["React", "TypeScript", "Node.js"]}
-                    fechaInicio="2023"
-                    fechaFin="2024"
-                    onClick={() => console.log("Trabajo clicked")}
-                  />
-                </div>
-                
-                <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="proyecto"
-                    enProgreso={false}
-                    nombre="E-commerce Platform"
-                    descripcion="Plataforma completa de comercio electrónico con sistema de pagos"
-                    tecnologias={["Vue.js", "Laravel", "MySQL"]}
-                    fechaInicio="2023"
-                    fechaFin="2024"
-                    onClick={() => console.log("E-commerce clicked")}
-                  />
-                </div>
-                
-                <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="trabajo"
-                    enProgreso={true}
-                    nombre="Senior Developer"
-                    empresa="StartupXYZ"
-                    descripcion="Liderazgo técnico y desarrollo de arquitecturas escalables"
-                    tecnologias={["Python", "Django", "AWS"]}
-                    fechaInicio="2024"
-                    onClick={() => console.log("Senior Dev clicked")}
-                  />
-                </div>
-                
-                {/* Puedes agregar más cards aquí para probar el scroll */}
-                <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="proyecto"
-                    enProgreso={false}
-                    nombre="App Mobile"
-                    descripcion="Aplicación móvil para gestión de tareas"
-                    tecnologias={["React Native", "Firebase"]}
-                    fechaInicio="2023"
-                    fechaFin="2023"
-                    onClick={() => console.log("Mobile App clicked")}
-                  />
-                </div>
-                
-                <div className="flex-shrink-0 pointer-events-auto">
-                  <Card
-                    tipo="trabajo"
-                    enProgreso={false}
-                    nombre="Full Stack Developer"
-                    empresa="Agency Co"
-                    descripcion="Desarrollo completo de aplicaciones web"
-                    tecnologias={["Angular", "Node.js", "MongoDB"]}
-                    fechaInicio="2022"
-                    fechaFin="2023"
-                    onClick={() => console.log("Full Stack clicked")}
-                  />
-                </div>
+                <Card
+                  tipo="proyecto"
+                  enProgreso={true}
+                  nombre="Portfolio Personal"
+                  descripcion="Desarrollo de un portfolio personal moderno con Next.js y Tailwind CSS"
+                  tecnologias={["Python","AI","Next.js", "React", "Tailwind", "Typescript","Axios","FastAPI"]}
+                  fechaInicio="Agosto 2025"
+                  onClick={() => console.log("Portfolio Personal")}
+                />
+              </div>
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="proyecto"
+                  enProgreso={false}
+                  nombre="Web scraping"
+                  
+                  descripcion="Este proyecto realiza scraping, procesamiento de PDFs y OCR"
+                  tecnologias={["Node", "Javascript", "playwright", "Axios"]}
+                  fechaInicio="Jun"
+                  fechaFin="2025"
+                  onClick={() => console.log("Web scraping")}
+                />
+              </div>
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="proyecto"
+                  enProgreso={false}
+                  nombre=" Metaroad"
+                  descripcion="Aplicacion de gestion de habitos y tareas diarias, inicialmente desarrollada con V0"
+                  tecnologias={["React", "Next.js", "Supabase", "Axios"]}
+                  fechaInicio="Dic"
+                  fechaFin="2024"
+                  onClick={() => console.log("Senior Dev clicked")}
+                />
+              </div>
+              
+              {/* Puedes agregar más cards aquí para probar el scroll */}
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="trabajo"
+                  enProgreso={false}
+                  nombre="FrontEnd Developer"
+                  empresa="Lilab"
+                  descripcion="Combiné habilidades técnicas y creativas para desarrollar soluciones
+                  innovadoras que mejoran la experiencia del usuario. Trabajé en colaboración
+                  con equipos para crear prototipos interactivos y aplicar tecnologías emergentes."
+                  tecnologias={["NPM", "Storybook","React","CssModule","CSS","GIT","Python","Figma"]}
+                  fechaInicio="Ene 2024"
+                  fechaFin="Jun 2024"
+                  onClick={() => console.log("Front-End Developer")}
+                />
+              </div>
+              
+              <div className="flex-shrink-0 pointer-events-auto">
+                <Card
+                  tipo="trabajo"
+                  enProgreso={false}
+                  nombre="FullStack Junior"
+                  empresa="Lilab"
+                  descripcion="Participé en el desarrollo de la plataforma Viuty, centrada en la gestión de
+                  productos para salones de belleza. Colaboré estrechamente con un equipo de
+                  diseñadores en la implementación de soluciones front-end"
+                  tecnologias={["React","Node.js","Redux","CSS"]}
+                  fechaInicio="Dic 2022"
+                  fechaFin="Ene 2024"
+                  onClick={() => console.log("FullStack Junior")}
+                />
+              </div>
+ 
               </div>
               
               {/* Chat component */}
@@ -292,7 +273,7 @@ export default function Home() {
           </div>
           
           {/* Toolbar fijo en la parte inferior */}
-          <div className="flex-shrink-0 bg-gray-100 p-4 border-t border-gray-200">
+          <div className="flex-shrink-0 bg-gray-100 p-4">
             <div className="w-[720px] mx-auto">
               <Toolbar />
             </div>
