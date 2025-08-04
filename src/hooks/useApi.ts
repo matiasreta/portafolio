@@ -20,7 +20,7 @@ export const useApi = (options: UseApiOptions = {}) => {
   const callApi = async <T>(
     method: 'get' | 'post' | 'put' | 'delete',
     url: string,
-    data?: any,
+    data?: unknown,
     attempt: number = 0
   ): Promise<T | null> => {
     try {
@@ -34,7 +34,7 @@ export const useApi = (options: UseApiOptions = {}) => {
         timeout,
       });
 
-      return response.data;
+      return response.data.data;
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'Error inesperado';
       
