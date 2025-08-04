@@ -27,14 +27,14 @@ export const useApi = (options: UseApiOptions = {}) => {
       setIsLoading(true);
       setError(null);
 
-      const response = await apiClient.request<ApiResponse<T>>({
+      const response = await apiClient.request<T>({
         method,
         url,
         data,
         timeout,
       });
 
-      return response.data.data;
+      return response.data;
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'Error inesperado';
       
