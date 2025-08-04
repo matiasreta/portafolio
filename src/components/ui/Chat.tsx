@@ -13,13 +13,13 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mb-4">
+    <div className="w-full">
       <div className="space-y-4">
         {messages.map((message, index) => (
           <div key={index} className="space-y-2">
             {/* User Message */}
             <div className="flex justify-end">
-              <div className="bg-orange-500 text-white rounded-lg px-4 py-2 max-w-[70%]">
+              <div className="bg-orange-600 text-white rounded-lg px-4 py-2 max-w-[70%]">
                 <p className="text-sm">{message.user_message}</p>
                 <p className="text-xs opacity-75 mt-1">• {formatTime(message.timestamp)}</p>
               </div>
@@ -27,7 +27,7 @@ const Chat: React.FC = () => {
             
             {/* Bot Response */}
             <div className="flex justify-start">
-              <div className=" text-gray-800 rounded-lg  py-2 max-w-[70%] font-bold ">
+              <div className="text-gray-800 rounded-lg py-2 max-w-[70%] font-bold">
                 {message.bot_response ? (
                   <>
                     <p className="text-sm whitespace-pre-line">{message.bot_response}</p>
