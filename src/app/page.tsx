@@ -53,8 +53,8 @@ export default function Home() {
         <div className="flex-1 flex flex-col items-center justify-center">
           <div className="w-[720px] flex flex-col ">
             {/* Título y descripción */}
-            <div className="mb-2">
-              <h1 className="text-4xl font-bold mb-6">
+            <div className="mb-4">
+              <h1 className="text-5xl font-bold mb-6">
                 Hola soy Matias Retamozo
                 <br/>
                 Desarrollador Fullstack
@@ -166,8 +166,8 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center min-h-0 overflow-y-auto justify-start pt-8">
             <div className="w-[720px] flex flex-col">
               {/* Título y descripción */}
-              <div className="mb-2">
-                <h1 className="text-4xl font-bold mb-6">
+              <div className="mb-4">
+                <h1 className="text-5xl font-bold mb-6">
                   Hola soy Matias Retamozo
                   <br/>
                   Desarrollador Fullstack

@@ -168,7 +168,7 @@ const Toolbar = memo<ToolbarProps>(({
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
                 disabled={isLoading}
-                placeholder={isLoading ? "Enviando mensaje..." : "What would you like to know about me?"}
+                placeholder={isLoading ? " " : "Escribe tu consulta, contacto, proyectos, experiencia, etc..."}
                 className={`w-full text-sm border-0 outline-none bg-transparent ${
                   isLoading 
                     ? 'text-gray-400 placeholder-gray-400 cursor-not-allowed' 
