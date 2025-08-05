@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { useChat } from '@/context/ChatContext';
+
+
 
 const Chat: React.FC = () => {
   const { messages } = useChat();
@@ -16,22 +19,26 @@ const Chat: React.FC = () => {
     <div className="w-full">
       <div className="space-y-4">
         {messages.map((message, index) => (
-          <div key={index} className="space-y-2">
+          <div key={index} className="space-y-4">
             {/* User Message */}
-            <div className="flex justify-end">
-              <div className="bg-orange-600 text-white rounded-lg px-4 py-2 max-w-[70%]">
+            <div className="flex justify-end pb-4">
+              <div className="bg-blue-700 text-white rounded-lg px-4 py-2 max-w-[70%]">
                 <p className="text-sm">{message.user_message}</p>
-                <p className="text-xs opacity-75 mt-1">• {formatTime(message.timestamp)}</p>
+                <p className="text-xs opacity-75 mt-1"> {formatTime(message.timestamp)}</p>
               </div>
             </div>
             
             {/* Bot Response */}
             <div className="flex justify-start">
-              <div className="text-gray-800 rounded-lg py-2 max-w-[70%] font-bold">
+              <div className="text-gray-800 rounded-lg py-0 max-w-[70%] font-medium">
                 {message.bot_response ? (
                   <>
-                    <p className="text-sm whitespace-pre-line">{message.bot_response}</p>
-                    <p className="text-xs text-gray-500 mt-1">• {formatTime(message.timestamp)}</p>
+                  
+                    <div className="text-sm prose prose-slate max-w-none whitespace-pre-line 
+                [&_ul]:my-[-1rem] [&_ul_li]:mb-[-1rem] [&_ul_li]:mt-[0rem]">
+                    <ReactMarkdown>{message.bot_response}</ReactMarkdown>
+                    </div>
+                    
                   </>
                 ) : (
                   <div className="flex items-center space-x-2">

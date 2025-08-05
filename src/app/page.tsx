@@ -59,7 +59,7 @@ export default function Home() {
                 <br/>
                 Desarrollador Fullstack
               </h1>
-              <p className="text-orange-600 text-base">
+              <p className="text-blue-700 text-base">
                 Podes consultar acerca de mi experiencia y proyectos actualizados
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function Home() {
                   <br/>
                   Desarrollador Fullstack
                 </h1>
-                <p className="text-orange-600 text-base">
+                <p className="text-blue-700 text-base">
                   Podes consultar acerca de mi experiencia y proyectos actualizados
                 </p>
               </div>

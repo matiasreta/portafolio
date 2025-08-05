@@ -30,8 +30,8 @@ interface ToolbarProps {
 
 const models = [
   { id: 'gemma-3', name: 'Gemini-Gemma3-B1' },
-  { id: 'opus-4', name: 'Claude-Opus-4' },
-  { id: 'gpt-4', name: 'GPT-4o-Mini' },
+  { id: 'openai-4', name: 'GPT-4o-Mini' }, 
+  { id: 'gemini-flash', name: 'Gemini-2.5-flash' },
 ];
 
 const Toolbar = memo<ToolbarProps>(({
@@ -186,7 +186,7 @@ const Toolbar = memo<ToolbarProps>(({
                 onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
                 className="bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg px-3 py-2 text-sm transition-colors flex items-center gap-2 text-gray-700"
               >
-                GPT-4o-Mini
+                gemini-2.5-flash
                 <ChevronUp 
                   className={`w-4 h-4 transition-transform ${isModelDropdownOpen ? 'rotate-180' : ''}`} 
                 />
@@ -199,7 +199,7 @@ const Toolbar = memo<ToolbarProps>(({
                     <button
                       key={model.id}
                       onClick={() => handleModelSelect()}
-                      className="w-full text-left px-3 py-2 text-sm transition-colors hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-gray-700"
+                      className="w-full text-left px-3 py-2 text-sm transition-colors hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-gray-400"
                     >
                       {model.name}
                     </button>
@@ -214,14 +214,14 @@ const Toolbar = memo<ToolbarProps>(({
               <button
                 onClick={handleArrowUpClick}
                 disabled={isLoading}
-                className={`rounded-lg p-2 transition-colors ${
+                className={`rounded-lg cursor-pointer p-2 transition-colors ${
                   isLoading 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-orange-500 hover:bg-orange-600'
+                    : 'bg-blue-600 hover:bg-blue-700'
                 } text-white`}
                 aria-label="Send message"
               >
-                <ArrowUp className={`w-4 h-4 cursor-pointer ${isLoading ? 'animate-pulse' : ''}`} />
+                <ArrowUp className={`w-4 h-4  ${isLoading ? 'animate-pulse' : ''}`} />
               </button>
             </div>
           </div>
