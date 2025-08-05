@@ -30,8 +30,7 @@ interface ToolbarProps {
 
 const models = [
   { id: 'gemma-3', name: 'Gemini-Gemma3-B1' },
-  { id: 'openai-4', name: 'GPT-4o-Mini' }, 
-  { id: 'gemini-flash', name: 'Gemini-2.5-flash' },
+  { id: 'openai-4', name: 'GPT-4o-Mini' },
 ];
 
 const Toolbar = memo<ToolbarProps>(({

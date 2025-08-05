@@ -19,6 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <link rel="icon" href="/favicon.png" type="image/png" />
       <body className={inter.className}>
         <ChatProvider>
           <div className="h-screen bg-gray-100 ">
