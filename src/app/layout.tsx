@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ChatProvider } from "@/context/ChatContext";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <link rel="icon" href="/favicon.png" type="image/png" />
       <body className={inter.className}>
         <ChatProvider>
           <div className="h-screen bg-gray-100 ">
