@@ -13,20 +13,20 @@ interface Message {
 
 interface ToolbarProps {
   onArrowUp?: () => void;
-  onActionSelect?: (action: string) => void;
 }
 
-// interface ActionButton {
-//   id: string;
-//   label: string;
-// }
+interface ActionButton {
+  id: string;
+  label: string;
+  query: string;
+}
 
-// const actionButtons: ActionButton[] = [
-//   { id: '1', label: 'Github' },
-//   { id: '3', label: 'Tecnologias' },
-//   { id: '4', label: 'Sobre mi' },
-//   { id: '5', label: "Contacto" },
-// ];
+const actionButtons: ActionButton[] = [
+  { id: '1', label: 'Github', query: '¿Cuál es su link de Github?' },
+  { id: '2', label: 'Tecnologias', query: '¿Cuáles son las tecnologías que maneja?' },
+  { id: '3', label: 'Sobre mi', query: '¿Puedes contarme sobre el perfil de Matías como desarrollador?' },
+  { id: '4', label: "Contacto", query: '¿Cómo puedo contactar a Matías?' },
+];
 
 const models = [
   { id: 'gemma-3', name: 'Gemini-Gemma3-B1' },
@@ -35,7 +35,6 @@ const models = [
 
 const Toolbar = memo<ToolbarProps>(({
   onArrowUp,
-  // onActionSelect
 }) => {
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
   const [inputText, setInputText] = useState('');
@@ -94,17 +93,22 @@ const Toolbar = memo<ToolbarProps>(({
     }
   };
 
-  // const handleActionClick = (actionId: string) => {
-  //   onActionSelect?.(actionId);
-  // };
+  const handleActionClick = (actionId: string) => {
+    // Find the action button by ID
+    const action = actionButtons.find(btn => btn.id === actionId);
+    if (!action || isLoading) return;
+    
+    // Send the action query directly without touching the input
+    sendMessage(action.query);
+  };
 
   const handleModelSelect = () => {
     setIsModelDropdownOpen(false);
   };
 
-  const handleSendMessage = async () => {
-    if (inputText.trim() && !isLoading) {
-      const userMessage = inputText.trim();
+  const sendMessage = async (messageText: string) => {
+    if (messageText.trim() && !isLoading) {
+      const userMessage = messageText.trim();
       console.log('Mensaje enviado:', userMessage);
       
       // Generar un chat_id único para este intercambio
@@ -121,15 +125,24 @@ const Toolbar = memo<ToolbarProps>(({
       // Agregar mensaje del usuario inmediatamente
       addMessage(tempUserMessage);
       
-      // Limpiar el input inmediatamente
-      setInputText('');
-      
       // Llamar a la API para obtener la respuesta
       try {
         await callBackendAPI(userMessage, chatId);
       } catch (error) {
-        console.error('Error en handleSendMessage:', error);
+        console.error('Error en sendMessage:', error);
       }
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (inputText.trim() && !isLoading) {
+      const userMessage = inputText.trim();
+      
+      // Limpiar el input inmediatamente
+      setInputText('');
+      
+      // Enviar el mensaje
+      await sendMessage(userMessage);
     }
   };
 
@@ -167,7 +180,7 @@ const Toolbar = memo<ToolbarProps>(({
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
                 disabled={isLoading}
-                placeholder={isLoading ? " " : "Escribe tu consulta, contacto, proyectos, experiencia, etc..."}
+                placeholder={isLoading ? " " : "Escribí tu consulta, contacto, proyectos, experiencia, etc..."}
                 className={`w-full text-sm border-0 outline-none bg-transparent ${
                   isLoading 
                     ? 'text-gray-400 placeholder-gray-400 cursor-not-allowed' 
@@ -226,17 +239,22 @@ const Toolbar = memo<ToolbarProps>(({
           </div>
         </div>
         {/* Bottom section - Action buttons without icons */}
-        {/* <div className="flex items-center justify-center pt-2 gap-2">
+        <div className="flex items-center justify-center pt-2 gap-2">
           {actionButtons.map((action) => (
             <button
               key={action.id}
               onClick={() => handleActionClick(action.id)}
-              className="bg-white hover:bg-gray-200 border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-700 hover:text-gray-900 transition-colors"
+              disabled={isLoading}
+              className={`border border-gray-200 rounded-lg px-3 py-2 text-sm transition-colors ${
+                isLoading 
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                  : 'bg-white hover:bg-gray-200 text-gray-700 hover:text-gray-900'
+              }`}
             >
               {action.label}
             </button>
           ))}
-        </div> */}
+        </div>
       </div>
     </>
   );

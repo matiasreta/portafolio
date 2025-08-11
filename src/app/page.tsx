@@ -60,7 +60,7 @@ export default function Home() {
                 Desarrollador Fullstack
               </h1>
               <h2 className="text-blue-700 text-base">
-              Al igual que con Chatgpt, puedes consultar sobre mi experiencia y proyectos actualizados.
+              Podes consultar sobre mi experiencia y proyectos actualizados.
               </h2>
             </div>
             
@@ -173,7 +173,7 @@ export default function Home() {
                   Desarrollador Fullstack
                 </h1>
                 <h2 className="text-blue-700 text-base">
-                Al igual que con Chatgpt, puedes consultar sobre mi experiencia y proyectos actualizados.
+                Podes consultar sobre mi experiencia y proyectos actualizados.
                 </h2>
               </div>
               
